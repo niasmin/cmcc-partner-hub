@@ -323,6 +323,55 @@
     padding:48px 0; text-align:center; font-size:0.85rem; color:#B9D6EF;
     background:linear-gradient(160deg, var(--navy-900), var(--navy-950));
   }
+  /* =========================================
+     ปรับแต่งเพิ่มเติมสำหรับ Mobile และ Tablet
+     ========================================= */
+  @media (max-width: 720px) {
+    /* 1. ปรับระยะห่างโดยรวมให้กระชับขึ้นบนจอมือถือ */
+    .wrap { padding: 0 16px; }
+    section { padding: 48px 0; }
+    .hero { padding: 40px 0 24px; }
+    
+    /* 2. เปลี่ยนเมนู Nav ให้เลื่อนซ้ายขวาได้ แทนที่จะซ่อนหายไป */
+    .nav-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .nav-links {
+      display: flex;
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      gap: 16px;
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none; /* Firefox */
+    }
+    .nav-links::-webkit-scrollbar { display: none; } /* Chrome, Safari, Opera */
+
+    /* 3. ปรับแท็บเมนู (ขอบข่ายงาน) ให้เต็มหน้าจอและกดง่ายขึ้น */
+    .role-tab {
+      flex: 1 1 calc(50% - 10px);
+      text-align: center;
+      font-size: 0.85rem;
+      padding: 10px 8px;
+    }
+    
+    /* 4. ลด Padding ภายในการ์ดและฟอร์มต่างๆ ไม่ให้กินพื้นที่จอ */
+    .price-card, .role-panel, .train-card, .form-shell {
+      padding: 20px;
+    }
+    
+    /* 5. ขยายพื้นที่ปุ่มกดให้เหมาะกับการใช้นิ้วสัมผัส */
+    button.submit { padding: 14px 20px; font-size: 1rem; }
+  }
+
+  /* 6. ซ่อนแถบ Scrollbar ของส่วนเส้นทาง (Route) ให้ดูสะอาดตา */
+  .route {
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
+  }
+  .route::-webkit-scrollbar { display: none; }
 </style>
 </head>
 <body>
